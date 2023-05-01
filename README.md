@@ -1,8 +1,8 @@
-# angular-interview-help
+# angular-notes
 It covers some imp revision notes required for angular.
 1. Till nov22 latest version is 15.0.0. i have worked on angular 6.<br>
-2. Angular is typescript based binding framework which binds html view with javascript object. hence it also called MVVM design pattern, where M is model and v is view and angular work as view-model binder. It also helps to build single page app by using routing. and it uses  language.<br>
-3. Angular js vs angular -> 1.x is angular js and post version 2 it is called angular.angularjs is based on javascript language, Angular is based on typescript language. Angularjs is based on controller based architecture, angular is build on component based architecture.angular also has cli by which we can create component easily.<br>
+2. Angular is typescript based binding framework which binds html view with javascript object. hence it also called MVVM design pattern, where M is model and v is view and angular work as view-model binder. It also helps to build single page app by using routing. and it uses type-script language.<br>
+3. Angular js vs angular -> 1.x is angular js and post version 2 it is called angular.angularjs is based on javascript language, Angular is based on typescript language. Angularjs is based on controller based architecture, angular is build on component based architecture.angular also has cli by which we can create angular modules easily.<br>
 4. Component are basic building block of angular. each component has ui and ts class. component decorator contains selector,templateUrl,styleUrls. and class can contain data-fields which can be used inside template html. CLI command to create component -> ng generate component <component-name> <br>
 It will create -> <br>
 4.1 A directory named after the component <br>
@@ -16,8 +16,8 @@ It will create -> <br>
 *ngFor and *ngIf are structural. by it dom structure gets decided.<br>
 6.2 attribute -> in it element will remain in DOM structure just it decide appearance or behavior (styling) of that element. like enable/disable attribute will hide button but will remain part of dom.<br>
 6.3 Angular components are actually just directives under the hood. it is different from other 2 in a way that it also has template.@Component meta-data annotation is used to create it.<br>
-We can also create custom directive (without ui) by using @Directive meta-data annotation.<br> 
-7. npm is a package manager by which we can install any java script framework like jquery,typescript. node_modules is folder inside which npm will install packages. npm install jquery<br>
+We can also create custom directive (here ui is optional) by using @Directive meta-data annotation.<br> 
+7. npm is a node package manager by which we can install any java script framework like jquery,typescript. node_modules is folder inside which npm will install packages. npm install jquery<br>
 8. package.json file is a file where we have all the javascript references(like jquery 3.4.1 version, tslib 1.10.0 version) is mentioned. by it all the required dependency with desired version will be downloaded together in one go.<br> 
 9. typescript extends javascript and provides more types and scrict checks.it also make it easier to implement oops concepts, like creating class inheritance etc.<br> 
 10. Angular provide CLI by which we can easily generate required components, services via single command. ng new my-app. it will create project with ready-made structure and template.<br> 
@@ -45,3 +45,6 @@ export const HomeRoutes = [{path: 'home',loadChildren: '../CustApp/CustApp.Modul
 18. dependency injection can be implemented by adding entry inside providers property of @NgModule metadata. here we specify  name to be used as 'provide' attribute and component name under 'useClass'. then in class where we want to inject. provide entry in constructor with name as specified in 'provide'.<br>
 19. ng serve vs ng build -> ng serve builds in memory and does not generate build in dist folder. it is used in dev stage where we want to fast deploy changes. ng build create build and save it into dist folder.so that your app can be deployed to remote server.<br>
 ng build --prod. is used in production. it will create compress js files and remove un-necessary comments before generating artifact.and make it prod ready.<br>
+20. How angular app starts-> https://www.javatpoint.com/how-an-angular-app-get-loaded-and-started <br>
+Angular process angular.json. Here inside build step main.ts is mentioned. hence main.ts is the entry point. inside it AppModule loading call is mentioned. inside app.module.ts file, it get AppComponent, so it runs app.component.ts file where html file app.component.html is mentioned and also selector as app-root mentioned. now when request comes first index.html is loaded and inside it <app-root></app-root> tag is there, it replaces it with content of app.component.html<br>
+main.ts  >>   app.Module.ts  >>  app.component.ts  >>  index.html  >>  app.component.html <br>
